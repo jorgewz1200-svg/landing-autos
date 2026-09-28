@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚗 Venta de Autos - Next.js + Supabase
 
-## Getting Started
+Aplicación web desarrollada con **Next.js 16+ (App Router)** y **Supabase** para mostrar una lista de autos en venta.  
+Incluye conexión a base de datos, rutas dinámicas y políticas de seguridad (RLS).
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Instalación
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clonar el repositorio:
+   git clone https://github.com/tuusuario/landing-autos.git
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Entrar al directorio:
+   cd landing-autos
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Instalar dependencias:
+   npm install
 
-## Learn More
+4. Configurar variables de entorno en `.env.local`:
+   NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key
 
-To learn more about Next.js, take a look at the following resources:
+5. Levantar el servidor:
+   npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+6. Abrir en navegador:
+   http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧩 Funcionalidades
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Página principal (`/`): lista todos los autos con marca, modelo y precio.
+- Ruta dinámica (`/autos/[slug]`): muestra detalle de cada auto.
+- Integración con Supabase: lectura de datos desde tabla `autos`.
+- RLS configurado: política de lectura pública para `anon` y `authenticated`.
+- Diseño básico responsive con tarjetas y navegación.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📂 Estructura del proyecto
+
+app/
+ ├─ page.tsx              # Página principal
+ ├─ autos/
+ │   └─ [slug]/
+ │       └─ page.tsx      # Página de detalle por auto
+ ├─ loading.tsx           # Estado de carga
+ └─ error.tsx             # Manejo de errores
+lib/
+ └─ supabaseClient.ts     # Configuración de Supabase
+
+---
+
+## 🛡️ Seguridad
+
+- Variables de entorno protegidas en `.env.local`.
+- `.gitignore` incluye:
+  node_modules/
+  .next/
+  .env.local
+
+---
+
+## 📸 Capturas de pantalla
+
+Agrega imágenes de tu app en una carpeta `/screenshots` y referencia así:
+
+![Home](screenshots/home.png)
+![Detalle](screenshots/detalle.png)
+
+---
+
+## 🌐 Despliegue
+
+- Proyecto desplegado en **Vercel**: https://venta-autos.vercel.app  
+- Repositorio público en GitHub: https://github.com/tuusuario/landing-autos
+
+---
+
+## ✨ Autor
+
+- Jorge –
